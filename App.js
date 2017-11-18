@@ -1,7 +1,9 @@
 import React from 'react';
 import { AppRegistry, StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import NewPollScreen from './NewPollScreen'
+import NewPollScreen from './NewPollScreen';
+import RestaurantDetail from './RestaurantDetail';
+import RestaurantList from './RestaurantList';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -15,6 +17,14 @@ class HomeScreen extends React.Component {
         <Button
           onPress={() => {navigate('NewPoll'); console.log("hi");}}
           title="New Poll"
+        />
+        <Button
+          onPress={() => {navigate('RestaurantDetail'); console.log("hello");}}
+          title="RestaurantDetail"
+        />
+        <Button
+          onPress={() => {navigate('RestaurantList'); console.log("lsdkfj");}}
+          title="RestaurantList"
         />
       </View>
     );
@@ -40,6 +50,8 @@ class HomeScreen extends React.Component {
 export const SimpleApp = StackNavigator({
   Home: { screen: HomeScreen },
   NewPoll: { screen: NewPollScreen },
+  RestaurantDetail: { screen: RestaurantDetail },
+  RestaurantList: { screen: RestaurantList },
 });
 
 export default class App extends React.Component {
