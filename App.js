@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppRegistry, StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import NewPollScreen from './NewPollScreen'
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -12,33 +13,33 @@ class HomeScreen extends React.Component {
       <View>
         <Text>Hello, Chat App!</Text>
         <Button
-          onPress={() => navigate('Chat', { user: 'Bob' })}
-          title="Chat with Bob"
+          onPress={() => {navigate('NewPoll'); console.log("hi");}}
+          title="New Poll"
         />
       </View>
     );
   }
 }
 
-class ChatScreen extends React.Component {
-  // Nav options can be defined as a function of the screen's props:
-  static navigationOptions = ({ navigation }) => ({
-    title: `Chat with ${navigation.state.params.user}`,
-  });
-  render() {
-    // The screen's current route is passed in to `props.navigation.state`:
-    const { params } = this.props.navigation.state;
-    return (
-      <View>
-        <Text>Chat with {params.user}</Text>
-      </View>
-    );
-  }
-}
+// class ChatScreen extends React.Component {
+//   // Nav options can be defined as a function of the screen's props:
+//   static navigationOptions = ({ navigation }) => ({
+//     title: `Chat with ${navigation.state.params.user}`,
+//   });
+//   render() {
+//     // The screen's current route is passed in to `props.navigation.state`:
+//     const { params } = this.props.navigation.state;
+//     return (
+//       <View>
+//         <Text>Chat with {params.user}</Text>
+//       </View>
+//     );
+//   }
+// }
 
 export const SimpleApp = StackNavigator({
   Home: { screen: HomeScreen },
-  Chat: { screen: ChatScreen },
+  NewPoll: { screen: NewPollScreen },
 });
 
 export default class App extends React.Component {
